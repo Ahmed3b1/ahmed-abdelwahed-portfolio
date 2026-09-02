@@ -1,9 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-import CustomCursor from "@/components/CustomCursor";
-import StarBackground from "@/components/StarBackground";
-import Navbar from "@/components/Navbar";
+import CustomCursor from "@/app/components/CustomCursor";
+import StarBackground from "@/app/components/StarBackground";
+import Navbar from "@/app/components/Navbar";
 
 export const metadata = {
   title: "Portfolio",
