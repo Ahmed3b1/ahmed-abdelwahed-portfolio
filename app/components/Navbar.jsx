@@ -60,6 +60,12 @@ const Navbar = () => {
 
         </div>
 
+        <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="bg-neon-blue/10 border border-neon-blue/50
+                         text-neon-blue py-2 px-5 text-white text-sm font-semibold hover:text-black 
+                        rounded-full text-sm hover:bg-neon-blue transition-all shadow-[0_0_15px_rgba(0,255,255,0.5)]">
+          hire me
+        </motion.button>
+
 
 
       </div>
