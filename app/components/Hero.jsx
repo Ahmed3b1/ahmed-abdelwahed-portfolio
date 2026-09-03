@@ -1,4 +1,9 @@
+"use client" ;
+
 import { motion } from "framer-motion" ;
+import { div } from "framer-motion/client";
+import { useEffect , useRef , useState } from "react" ;
+import { useMotionValue , useSpring , useTransform } from "framer-motion" ;
 
 
 const Hero = () => {
@@ -52,11 +57,14 @@ const Hero = () => {
 
   return (
     <section ref={containerRef} className="min-h-screen flex items-center justify-center pt-24 md:pt-0 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col gap-6 z-10">
 
+          
+              {/* left : text-content  */}
 
           <div className="overflow-hidden">
-            <motion.div intial={{ opacity: 0 , y: 20 }} animate={{ opacity: 1 , y: 0 }} 
+            <motion.div initial={{ opacity: 0 , y: 20 }} animate={{ opacity: 1 , y: 0 }} 
                         className="text-neon-blue font-semibold tracking-widest text-sm uppercase flex items-center gap-2">
               <span className="w-8 h-[1px] bg-neon-blue" />
                   Creative Developer & UI/UX Designer
@@ -66,7 +74,7 @@ const Hero = () => {
 
           <h1 className="text-5xl md:text-7xl font-bold text-green-500 leading[1.1] md:leading-[1.1] tracking-tight">
             {words.map((word , index) => (  
-              <motion.span key={index} intial={{ opacity: 0 , y: 40 , filter: "blur(10px)" }} 
+              <motion.span key={index} initial={{ opacity: 0 , y: 40 , filter: "blur(10px)" }} 
                             animate={{ opacity: 1 , y: 0  , filter: "blur(0px)" }} 
                             transition={{ delay: index * 0.1 , duration: 0.8 , ease: "easeOut" }}
                            className="inline-block mr-[0.2em]">
@@ -107,7 +115,7 @@ const Hero = () => {
                 className="py-4 px-8 border border-white/10 text-white font-bold
                            hover:bg-white/5  
                           rounded-full transition-colors">
-                Let's Talk
+                Lets Talk
             </motion.button>
 
           </div>
@@ -117,11 +125,56 @@ const Hero = () => {
 
         <motion.div style={{rotateX , rotateY , perspective: 1000}} className="relative flex justify-center items-center">
 
-            <motion.div>
+            <motion.div animate={{y:[0 , -20 , 0] , rotate: [0 , 2 , -2 , 0]}}
+                        transition={{ repeat: Infinity , duration: 8 , ease: "easeInOut" }}
+                        className="w-64 h-64 md:h-96 rounded-full relative">
+                <div className="absolute inset-0 bg-linear-to-br from-indigo-500 via-purple-500 to-pink-500
+                                rounded-full opacity-40 blur-3xl animate-pulse"/>
+
+                <div className="absolute inset-4 bg-cosmic-blue/80 backdrop-blur-3xl
+                                rounded-full border border-white/10 
+                                shadow-[inner_0_0_20px_rgba(0,255,255,0.5)] overflow-hidden">
+                        
+                        {[...Array(20)].map((_, index) => (
+                            
+                          <div key={index} className="absolute bg-white/20 rounded-full"
+                                style={{ width: Math.random() * 20 + 5+ "px" ,
+                                         height: Math.random() * 20 + 5 + "px" ,
+                                         top: Math.random() * 100 + "%" ,
+                                         left: Math.random() * 100 + "%" }}/>
+
+                        ))}
+
+                </div>
+
+                <div className="absolute inset-0 flex justify-center items-center">
+
+                    <motion.div animate={{y: [-10 , 10 , -10]}}
+                                transition={{ duration: 4 , repeat: Infinity , ease : "easeInOut"}}
+                                className="w-48 h-48 md:h-72 bg-[url('https://png.pngtree.com/png-vector/20230302/ourmid/png-tree-3d-astronaut-floating-in-space-png-image_6626605.png')] 
+                                              bg-center bg-contain bg-no-repeat drop-shadow-[0_0_20px_rgba(0,255,255,0.5)]"/>
+
+                </div>
               
             </motion.div>
 
+            <div className="absolute inset-0 pointer-events-none">
+                  {[...Array(3)].map((_, i) => (
+                      <motion.div
+                          key={i}
+                          animate={{ rotate: 360 }}
+                          transition={{
+                              duration: 10 + i * 5,
+                              repeat: Infinity,
+                              ease: "linear"
+                          }}
+                          className="absolute inset-12.5 rounded-full border border-white/5"
+                      />
+                  ))}
+            </div>
+
         </motion.div>
+      </div>
     </section>   
   );
 };
