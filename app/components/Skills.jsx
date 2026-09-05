@@ -28,7 +28,9 @@ const SkillCircle = ({percentage , icon: Icon , title , index}) => {
 
 
   return (
-    <motion.div initial={{opacity:0 , scale:0.8}}
+    <motion.div
+                ref={ref}
+               initial={{opacity:0 , scale:0.8}}
                 animate={ isInView ? {opacity:1 , scale:1} : {}}
                 transition={{delay: index * 0.1 , duration: 0.5 }}
                 whileHover={{y: -5  , scale: 1.05}}
@@ -45,7 +47,22 @@ const SkillCircle = ({percentage , icon: Icon , title , index}) => {
                              className="text-neon-blue drop-shadow-[0_0_10px_rgba(0,255,255,0.5)]"/>
 
           </svg>
+
+          <div className="absolute flex flex-col items-center justify-center text-white">
+            <motion.div initial={{opacity:0}} 
+              animate={isInView ? {opacity:1} : {}}
+              transition={{delay: 2}}
+              className="group-hover:text-neon-blue transition-colors">
+              <Icon size={24}/>
+
+            </motion.div>
+            <span className="text-xl font-bold">{count}%</span>
+          </div>
+
         </div>
+
+        <h3 className="text-slate-300 font-medium group-hover:text-white transition-colors">{title}</h3>
+
       </motion.div>   
   );
 };
@@ -70,7 +87,7 @@ const Skills = () => {
           <motion.h2 initial={{opacity:0 , y: 20}} 
                       whileInView={{opacity:1 , y: 0}} 
                       viewport={{once: true}}
-                      className="text-3xl md:text-5xl font-bold mb-4">
+                      className="text-3xl md:text-5xl font-bold mb-4 text-green">
                         My Specialized <span className="text-gradient">Skillset</span>
           </motion.h2>
 
@@ -79,8 +96,25 @@ const Skills = () => {
                     viewport={{once: true}}
                     transition={{delay: 0.1}}
                     className="text-slate-400 max-w-2xl mx-auto">
-
+              Leveraging cutting-edge technologies and deep motion design 
+               expertise to craft immersive digital experiences that captivate and inspire 
           </motion.p>
+
+        </div>
+
+        <div className="glassmorphism rounded-4xl p-10 md:p-16 overflow-hidden relative">
+
+          {/* Background Glow  */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-neon-blue/10 blur-[100px] rounded-full"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-neon-blue/10 blur-[100px] rounded-full"></div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-12 gap-x-6 relative z-10">
+
+            {skills.map((skill , index) => (
+              <SkillCircle key={skill.title} {...skill} index={index} />
+            ))}
+
+          </div>
 
         </div>
 
