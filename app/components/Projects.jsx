@@ -1,9 +1,154 @@
-const Projects = () => {
+"use client";
+import {useState , useRef} from "react" ;
+import {motion , animatePresence } from "framer-motion" ;
+import {ExternalLink , Github } from "lucide-react" ;
+
+const ProjectCard = ( title , category , description , image , index ) => {
+
+  const cardRef = useRef(null) ;
+  const [rotate , setRotate] = useState({x: 0 , y: 0}) ;
+
+  const handleMouseMove = (e) => {
+    if(!cardRef.current) return ;
+    const { left , top , width , height } = cardRef.current.getBoundingClientRect() ;
+    const x = (e.clientX - left) / width - 0.5 ;
+    const y = (e.clientY - top) / height - 0.5 ;
+    setRotate({ x: y * -20 , y: x * 20}) ;
+  } ;
+
+  const handleMouseLeave = () => {
+    setRotate({ x: 0 , y: 0}) ;
+  }
+
   return (
-    <div >
-        Projects
-      </div>   
+    <motion.div layout initial={{ opacity: 0 , y: 20}} 
+      animate={{ opacity: 1 , y: 0}} 
+      exit={{ opacity: 0 , scale: 0.9}} 
+      transition={{ duration: 0.4 , delay: index * 0.1}} 
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        transformStyle: "preserve-3d",
+        perspective: 1000,
+        rotateX: rotate.x,
+        rotateY: rotate.y
+      }}
+      className="relative group cursor-pointer"
+    >
+      <div className="relative overflow-hidden rounded-2xl glassmorphism aspect-4/3 border border-white/5 transition-colors
+                    group-hover:border-neon-blue/40">
+          
+        <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style={{ backgroundImage: `url(${image})` }}>
+              <div className="absolute inset-0 bg-cosmic-black/40
+                              group-hover:bg-cosmic-black/20 transition-colors"/>             
+        </div>
+
+        <div className="absolute inset-0 flex flex-col justify-end p-8 translate-z-20 opacity-0
+                        group-hover:opacity-100 transition-opacity duration-300 bg-linear-to-t 
+                        from-cosmic-black via-cosmic-black/60 to-transparent">
+
+            <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+
+              <span className="text-xs font-bold text-neon-blue uppercase tracking-wider">{category}</span>
+              <h3 className="text-2xl font-bold mb-2 text-white">{title}</h3>
+              <p className="text-sm text-slate-300 mb-6 line-clamp-2">{description}</p>
+
+              <div className="flex gap-4">
+                <a href="#" className="p-2 bg-white/10 hover:bg-neon-blue rounded-full transition-colors text-colors">
+                  <Github size={18}/>
+                </a>
+                <a href="#" className="p-2 bg-white/10 hover:bg-neon-blue rounded-full transition-colors text-white">
+                  <ExternalLink size={18} />
+                </a>
+              </div>
+
+            </div>
+
+        </div>
+
+
+      </div>
+    </motion.div>   
   );
 };
+
+
+const Projects = () => {
+
+  const [activeTab , setActiveTab] = useState("All") ; 
+  const categories = ["All" , "Web App" , "Mobile" , "UI/UX"]
+
+  const projects = [
+    {
+      title:"Nebula Dashboard",
+      category: "Web App",
+      description: "A real-time analytics platform for monitoring cosmic radiation data",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      title:"Stellar Wallet",
+      category: "Mobile",
+      description: "A real-time analytics platform for monitoring cosmic radiation data",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      title:"Void OS",
+      category: "UI/UX",
+      description: "A real-time analytics platform for monitoring cosmic radiation data",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      title:"Galactic Commerce",
+      category: "Web App",
+      description: "A real-time analytics platform for monitoring cosmic radiation data",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      title:"Orion Social",
+      category: "Mobile",
+      description: "A real-time analytics platform for monitoring cosmic radiation data",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      title:"Pulsar Visuals",
+      category: "UI/UX",
+      description: "A real-time analytics platform for monitoring cosmic radiation data",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop"
+    },
+  ] ; 
+
+
+  const filteredProjects = activeTab === "All" ? projects : projects.filter(p => p.category === activeTab) ;
+
+  return (
+    <section className="max-w-7xl mx-auto py-20 relative">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+        <div>
+
+          <motion.h2 initial={{opacity:0 , x: -20}} whileInView={{opacity:1 , x:0}}
+                      viewport={{once:true}}
+                      className="text-3xl md:text-5xl font-bold mb-4">
+              Featured <span className="text-gradient">Creations</span>
+
+          </motion.h2>
+
+          <motion.h2 initial={{opacity:0 , x: -20}} whileInView={{opacity:1 , x:0}}
+                      viewport={{once:true}}
+                      transition={{delay:0.1}}
+                      className="text-slat-400 max-w-lg">
+              
+
+          </motion.h2>
+
+        </div>
+
+      </div>
+
+    </section>
+  )
+
+}
 
 export default Projects;
