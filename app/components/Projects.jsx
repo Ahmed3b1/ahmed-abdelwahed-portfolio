@@ -1,7 +1,8 @@
 "use client";
 import {useState , useRef} from "react" ;
-import {motion , animatePresence } from "framer-motion" ;
+import {motion , AnimatePresence } from "framer-motion" ;
 import {ExternalLink , Github } from "lucide-react" ;
+import { button } from "framer-motion/client";
 
 const ProjectCard = ( title , category , description , image , index ) => {
 
@@ -129,7 +130,7 @@ const Projects = () => {
 
           <motion.h2 initial={{opacity:0 , x: -20}} whileInView={{opacity:1 , x:0}}
                       viewport={{once:true}}
-                      className="text-3xl md:text-5xl font-bold mb-4">
+                      className="text-3xl md:text-5xl text-green-500 font-bold mb-4">
               Featured <span className="text-gradient">Creations</span>
 
           </motion.h2>
@@ -138,11 +139,42 @@ const Projects = () => {
                       viewport={{once:true}}
                       transition={{delay:0.1}}
                       className="text-slat-400 max-w-lg">
-              
+               A Curated selection of my most ambitious projects where design meets performance .
 
           </motion.h2>
 
         </div>
+
+
+        <div className="flex bg-white/5 p-1 rounded-full border border-white/10 self-start md:self-auto
+                        overflow-x-auto no-scrollbar">
+            {categories.map((cat) => {
+              <button key={cat} onClick={() => setActiveTab(cat)} 
+                      className={`relative px-6 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap
+                                  ${activeTab === cat? "text-white" : "text-state-400 hover:text-white"}`}>
+                    
+                  {activeTab === cat && (
+                    <motion.div layoutId="activeTab" className="absolute inset-0 bg-neon-blue rounded-full
+                                shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+                            transition={{type:"spring" , bounce:0.2 , duration:0.6}}/>
+                  )} 
+                  <span className="relative z-10">{cat}</span>
+
+              </button>
+            })}
+
+        </div>
+
+      </div>
+
+      <div classsName="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project , i) => {
+              <ProjectCard key={project.title} {...project} index={i}/>
+            })}
+        </AnimatePresence>
+
 
       </div>
 
