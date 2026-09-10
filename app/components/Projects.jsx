@@ -1,8 +1,7 @@
 "use client";
 import {useState , useRef} from "react" ;
 import {motion , AnimatePresence } from "framer-motion" ;
-import {ExternalLink , Github } from "lucide-react" ;
-import { button } from "framer-motion/client";
+import {ExternalLink , CodeXml } from "lucide-react" ;
 
 const ProjectCard = ( title , category , description , image , index ) => {
 
@@ -58,7 +57,7 @@ const ProjectCard = ( title , category , description , image , index ) => {
 
               <div className="flex gap-4">
                 <a href="#" className="p-2 bg-white/10 hover:bg-neon-blue rounded-full transition-colors text-colors">
-                  <Github size={18}/>
+                  <CodeXml size={18}/>
                 </a>
                 <a href="#" className="p-2 bg-white/10 hover:bg-neon-blue rounded-full transition-colors text-white">
                   <ExternalLink size={18} />
@@ -167,7 +166,7 @@ const Projects = () => {
 
       </div>
 
-      <div classsName="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
         <AnimatePresence mode="popLayout">
             {filteredProjects.map((project , i) => {

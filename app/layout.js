@@ -1,7 +1,5 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-import CustomCursor from "@/app/components/CustomCursor";
 import StarBackground from "@/app/components/StarBackground";
 import Navbar from "@/app/components/Navbar";
 
@@ -14,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body className="antialiased selection:bg-neon-blue selection:text-white">
-        <CustomCursor />
+        {/* <CustomCursor /> */}
         <StarBackground />
         <Navbar />         
           <main className="relative z-10">

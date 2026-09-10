@@ -1,7 +1,6 @@
 "use client" ;
 
 import { motion } from "framer-motion" ;
-import { div } from "framer-motion/client";
 import { useEffect , useRef , useState } from "react" ;
 import { useMotionValue , useSpring , useTransform } from "framer-motion" ;
 
@@ -31,6 +30,13 @@ const Hero = () => {
             window.removeEventListener("mousemove", handleMouseMove);
         };
     }, [x, y]);
+
+    const sphereStars = Array.from({ length: 20 }, (_, index) => ({
+          width: (index * 7) % 16 + 5,
+          height: (index * 11) % 16 + 5,
+          top: (index * 37) % 100,
+          left: (index * 53) % 100,
+        }));
 
 
 
@@ -135,14 +141,17 @@ const Hero = () => {
                                 rounded-full border border-white/10 
                                 shadow-[inner_0_0_20px_rgba(0,255,255,0.5)] overflow-hidden">
                         
-                        {[...Array(20)].map((_, index) => (
-                            
-                          <div key={index} className="absolute bg-white/20 rounded-full"
-                                style={{ width: Math.random() * 20 + 5+ "px" ,
-                                         height: Math.random() * 20 + 5 + "px" ,
-                                         top: Math.random() * 100 + "%" ,
-                                         left: Math.random() * 100 + "%" }}/>
-
+                        {sphereStars.map((star, index) => (
+                          <div
+                            key={index}
+                            className="absolute bg-white/20 rounded-full"
+                            style={{
+                              width: `${star.width}px`,
+                              height: `${star.height}px`,
+                              top: `${star.top}%`,
+                              left: `${star.left}%`,
+                            }}
+                          />
                         ))}
 
                 </div>
