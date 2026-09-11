@@ -21,7 +21,7 @@ export default function Home() {
 
 
       {/* footer  */}
-      <footer className="w-full py-10 border-t border-white/5 text-center text-state-500 text-sm">
+      <footer className="w-full py-10 border-t border-white/5 text-center text-slate-500 text-sm">
           <p>{new Date().getFullYear()} - All rights reserved Ahmed Abdelwahed portfolio</p>
       </footer>
     </div>

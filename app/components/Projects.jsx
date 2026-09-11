@@ -3,7 +3,7 @@ import {useState , useRef} from "react" ;
 import {motion , AnimatePresence } from "framer-motion" ;
 import {ExternalLink , CodeXml } from "lucide-react" ;
 
-const ProjectCard = ( title , category , description , image , index ) => {
+const ProjectCard = ( { title , category , description , image , index } ) => {
 
   const cardRef = useRef(null) ;
   const [rotate , setRotate] = useState({x: 0 , y: 0}) ;
@@ -36,7 +36,7 @@ const ProjectCard = ( title , category , description , image , index ) => {
       }}
       className="relative group cursor-pointer"
     >
-      <div className="relative overflow-hidden rounded-2xl glassmorphism aspect-4/3 border border-white/5 transition-colors
+      <div className="relative overflow-hidden rounded-2xl glassmorphism aspect-[4/3] border border-white/5 transition-colors
                     group-hover:border-neon-blue/40">
           
         <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
@@ -56,7 +56,7 @@ const ProjectCard = ( title , category , description , image , index ) => {
               <p className="text-sm text-slate-300 mb-6 line-clamp-2">{description}</p>
 
               <div className="flex gap-4">
-                <a href="#" className="p-2 bg-white/10 hover:bg-neon-blue rounded-full transition-colors text-colors">
+                <a href="#" className="p-2 bg-white/10 hover:bg-neon-blue rounded-full transition-colors text-white">
                   <CodeXml size={18}/>
                 </a>
                 <a href="#" className="p-2 bg-white/10 hover:bg-neon-blue rounded-full transition-colors text-white">
@@ -137,7 +137,7 @@ const Projects = () => {
           <motion.h2 initial={{opacity:0 , x: -20}} whileInView={{opacity:1 , x:0}}
                       viewport={{once:true}}
                       transition={{delay:0.1}}
-                      className="text-slat-400 max-w-lg">
+                      className="text-slate-400 max-w-lg">
                A Curated selection of my most ambitious projects where design meets performance .
 
           </motion.h2>
@@ -147,10 +147,10 @@ const Projects = () => {
 
         <div className="flex bg-white/5 p-1 rounded-full border border-white/10 self-start md:self-auto
                         overflow-x-auto no-scrollbar">
-            {categories.map((cat) => {
+            {categories.map((cat) => (
               <button key={cat} onClick={() => setActiveTab(cat)} 
                       className={`relative px-6 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap
-                                  ${activeTab === cat? "text-white" : "text-state-400 hover:text-white"}`}>
+                                  ${activeTab === cat? "text-white" : "text-slate-400 hover:text-white"}`}>
                     
                   {activeTab === cat && (
                     <motion.div layoutId="activeTab" className="absolute inset-0 bg-neon-blue rounded-full
@@ -160,7 +160,7 @@ const Projects = () => {
                   <span className="relative z-10">{cat}</span>
 
               </button>
-            })}
+                                  ))}
 
         </div>
 
@@ -169,9 +169,9 @@ const Projects = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
         <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project , i) => {
-              <ProjectCard key={project.title} {...project} index={i}/>
-            })}
+            {filteredProjects.map((project , i) => (
+              <ProjectCard key={project.title} {...project} index={i}/> 
+            ))}
         </AnimatePresence>
 
 

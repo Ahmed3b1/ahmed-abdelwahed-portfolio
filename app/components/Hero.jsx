@@ -78,7 +78,7 @@ const Hero = () => {
           </div>
 
 
-          <h1 className="text-5xl md:text-7xl font-bold text-green-500 leading[1.1] md:leading-[1.1] tracking-tight">
+          <h1 className="text-5xl md:text-7xl font-bold text-green-500 leading-[1.1] md:leading-[1.1] tracking-tight">
             {words.map((word , index) => (  
               <motion.span key={index} initial={{ opacity: 0 , y: 40 , filter: "blur(10px)" }} 
                             animate={{ opacity: 1 , y: 0  , filter: "blur(0px)" }} 
@@ -92,7 +92,7 @@ const Hero = () => {
           <motion.p initial={{ opacity: 0 , y: 20 }} 
           animate={{ opacity: 1 , y: 0 }} 
           transition={{ delay: 1.2 , duration: 0.8 }}
-          className="text-state-400 text-lg md:text-xl max-w-xl leading-relaxed">
+          className="text-slate-400 text-lg md:text-xl max-w-xl leading-relaxed">
             I am a passionate and creative developer with a strong focus on crafting exceptional digital experiences. With expertise in front-end development, UI/UX design, and a keen eye for detail, I strive to create visually stunning and user-friendly websites and applications. My goal is to combine innovative design with seamless functionality to deliver impactful solutions that leave a lasting impression.
           </motion.p>
 
@@ -106,7 +106,7 @@ const Hero = () => {
                 animate={{ x: btnPos.x , y: btnPos.y }}
                 transition={{ type: "spring" , stiffness: 150 , damping: 15 }}
                 whileTap={{ scale: 0.95 }} 
-                className="bg-neon-blue overflow-hidden group py-4 px-8 text-white text-sm font-bold
+                className="relative bg-neon-blue overflow-hidden group py-4 px-8 text-white text-sm font-bold
                            hover:shadow-[0_0_15px_rgba(0,255,255,0.5)]  
                           rounded-full transition-shadow shadow-[0_0_15px_rgba(0,255,255,0.5)]">
               <span className="relative z-10">View My Work</span>
