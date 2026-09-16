@@ -1,12 +1,12 @@
 "use client";
 
-import React , {useState , useEffect} from "react" ;
-import { motion } from "framer-motion" ;
-import {Mail , Rocket , User , Briefcase} from "lucide-react" ;
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Mail, Rocket, User, Briefcase } from "lucide-react";
 
 const Navbar = () => {
 
-  const [scrolled , setScrolled] = useState(false) ;
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,11 +20,11 @@ const Navbar = () => {
   }, []);
 
   const navlinks = [
-    { name: "Home", href: "#home" , icon: <Rocket size={18} /> },
-    { name: "Skills", href: "#skills" , icon: <User size={18} /> },
-    { name: "Projects", href: "#projects" , icon: <Briefcase size={18} /> },
-    { name: "Contact", href: "#contact" , icon: <Mail size={18} /> },
-  ]
+    { name: "Home", href: "#home", icon: <Rocket size={18} /> },
+    { name: "Skills", href: "#skills", icon: <User size={18} /> },
+    { name: "Projects", href: "#projects", icon: <Briefcase size={18} /> },
+    { name: "Contact", href: "#contact", icon: <Mail size={18} /> },
+  ];
 
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300  
@@ -34,11 +34,11 @@ const Navbar = () => {
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="text-2xl font-bold tracking-tighter">
-            <span className="text-white">ِAhmed</span>
-            <span className="text-neon-blue">portfolio</span>
+          className="text-2xl font-bold tracking-tighter"
+        >
+          <span className="text-white">ِAhmed</span>
+          <span className="text-yellow-600">Abdelwahed</span>
         </motion.div>
-
 
         <div className="hidden md:flex gap-8">
           {navlinks.map((link, index) => (
@@ -53,23 +53,26 @@ const Navbar = () => {
               {link.icon}
               {link.name}
 
-              <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-neon-blue transition-all duration-300 group-hover:w-full" />
+              <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-[#D4AF37] transition-all duration-300 group-hover:w-full" />
 
             </motion.a>
           ))}
-
         </div>
 
-        <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="bg-neon-blue/10 border border-neon-blue/50
-                         text-neon-blue py-2 px-5 text-white text-sm font-semibold hover:text-black 
-                        rounded-full text-sm hover:bg-neon-blue transition-all shadow-[0_0_15px_rgba(0,255,255,0.5)]">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="bg-[#D4AF37]/10 border border-[#D4AF37]/50
+           text-[#D4AF37] py-2 px-5 text-sm font-semibold
+           hover:text-black rounded-full
+           hover:bg-[#D4AF37] transition-all
+           shadow-[0_0_15px_rgba(212,175,55,0.5)]"
+        >
           hire me
         </motion.button>
 
-
-
       </div>
-    </nav>   
+    </nav>
   );
 };
 

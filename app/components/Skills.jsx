@@ -44,7 +44,7 @@ const SkillCircle = ({percentage , icon: Icon , title , index}) => {
                              initial ={{ strokeDashoffset: circumference }}
                               animate ={isInView ? { strokeDashoffset: offset } : {}}
                              transition={{duration: 2 , ease: "easeOut"}}
-                             className="text-neon-blue drop-shadow-[0_0_10px_rgba(0,255,255,0.5)]"/>
+                             className="text-[#D4AF37] drop-shadow-[0_0_10px_rgba(212,175,55,0.5)]"/>
 
           </svg>
 
@@ -52,7 +52,7 @@ const SkillCircle = ({percentage , icon: Icon , title , index}) => {
             <motion.div initial={{opacity:0}} 
               animate={isInView ? {opacity:1} : {}}
               transition={{delay: 2}}
-              className="group-hover:text-neon-blue transition-colors">
+              className="group-hover:text-[#D4AF37] transition-colors">
               <Icon size={24}/>
 
             </motion.div>
@@ -70,12 +70,12 @@ const SkillCircle = ({percentage , icon: Icon , title , index}) => {
 const Skills = () => {
 
     const skills = [
-      {title: "JavaScript" , percentage: 56 , icon: Code2},
-      {title: "React" , percentage: 70 , icon: Layout},
-      {title: "Next.js" , percentage: 80 , icon: Layers},
-      {title: "Node.js" , percentage: 60 , icon: Cpu},
-      {title: "Express.js" , percentage: 50 , icon: Zap},
-      {title: "MongoDB" , percentage: 40 , icon: Globe}
+      {title: "JavaScript" , percentage: 100 , icon: Code2},
+      {title: "React" , percentage: 100 , icon: Layout},
+      {title: "Next.js" , percentage: 100 , icon: Layers},
+      {title: "Laravel" , percentage: 100 , icon: Cpu},
+      {title: "PHP" , percentage: 100 , icon: Zap},
+      {title: "MySql" , percentage: 100 , icon: Globe}
     ] ;
 
     return(
@@ -87,7 +87,7 @@ const Skills = () => {
           <motion.h2 initial={{opacity:0 , y: 20}} 
                       whileInView={{opacity:1 , y: 0}} 
                       viewport={{once: true}}
-                      className="text-3xl md:text-5xl font-bold mb-4 text-green">
+                      className="text-3xl md:text-5xl font-bold mb-4 text-[#D4AF37]">
                         My Specialized <span className="text-gradient">Skillset</span>
           </motion.h2>
 
@@ -105,8 +105,8 @@ const Skills = () => {
         <div className="glassmorphism rounded-4xl p-10 md:p-16 overflow-hidden relative">
 
           {/* Background Glow  */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-neon-blue/10 blur-[100px] rounded-full"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-neon-blue/10 blur-[100px] rounded-full"></div>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/10 blur-[100px] rounded-full"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#D4AF37]/10 blur-[100px] rounded-full"></div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-12 gap-x-6 relative z-10">
 

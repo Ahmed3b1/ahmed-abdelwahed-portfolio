@@ -37,7 +37,7 @@ const ProjectCard = ( { title , category , description , image , index } ) => {
       className="relative group cursor-pointer"
     >
       <div className="relative overflow-hidden rounded-2xl glassmorphism aspect-[4/3] border border-white/5 transition-colors
-                    group-hover:border-neon-blue/40">
+                    group-hover:border-[#D4AF37]/40">
           
         <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
               style={{ backgroundImage: `url(${image})` }}>
@@ -51,15 +51,15 @@ const ProjectCard = ( { title , category , description , image , index } ) => {
 
             <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
 
-              <span className="text-xs font-bold text-neon-blue uppercase tracking-wider">{category}</span>
+              <span className="text-xs font-bold text-[#D4AF37] uppercase tracking-wider">{category}</span>
               <h3 className="text-2xl font-bold mb-2 text-white">{title}</h3>
               <p className="text-sm text-slate-300 mb-6 line-clamp-2">{description}</p>
 
               <div className="flex gap-4">
-                <a href="#" className="p-2 bg-white/10 hover:bg-neon-blue rounded-full transition-colors text-white">
+                <a href="#" className="p-2 bg-white/10 hover:bg-[#D4AF37] rounded-full transition-colors text-white">
                   <CodeXml size={18}/>
                 </a>
-                <a href="#" className="p-2 bg-white/10 hover:bg-neon-blue rounded-full transition-colors text-white">
+                <a href="#" className="p-2 bg-white/10 hover:bg-[#D4AF37] rounded-full transition-colors text-white">
                   <ExternalLink size={18} />
                 </a>
               </div>
@@ -67,7 +67,6 @@ const ProjectCard = ( { title , category , description , image , index } ) => {
             </div>
 
         </div>
-
 
       </div>
     </motion.div>   
@@ -78,7 +77,7 @@ const ProjectCard = ( { title , category , description , image , index } ) => {
 const Projects = () => {
 
   const [activeTab , setActiveTab] = useState("All") ; 
-  const categories = ["All" , "Web App" , "Mobile" , "UI/UX"]
+  const categories = ["All" , "Laravel" , "React" , "Next"]
 
   const projects = [
     {
@@ -129,7 +128,7 @@ const Projects = () => {
 
           <motion.h2 initial={{opacity:0 , x: -20}} whileInView={{opacity:1 , x:0}}
                       viewport={{once:true}}
-                      className="text-3xl md:text-5xl text-green-500 font-bold mb-4">
+                      className="text-3xl md:text-5xl text-[#D4AF37] font-bold mb-4">
               Featured <span className="text-gradient">Creations</span>
 
           </motion.h2>
@@ -153,14 +152,14 @@ const Projects = () => {
                                   ${activeTab === cat? "text-white" : "text-slate-400 hover:text-white"}`}>
                     
                   {activeTab === cat && (
-                    <motion.div layoutId="activeTab" className="absolute inset-0 bg-neon-blue rounded-full
-                                shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+                    <motion.div layoutId="activeTab" className="absolute inset-0 bg-[#D4AF37] rounded-full
+                                shadow-[0_0_15px_rgba(212,175,55,0.5)]"
                             transition={{type:"spring" , bounce:0.2 , duration:0.6}}/>
                   )} 
                   <span className="relative z-10">{cat}</span>
 
               </button>
-                                  ))}
+            ))}
 
         </div>
 
@@ -173,7 +172,6 @@ const Projects = () => {
               <ProjectCard key={project.title} {...project} index={i}/> 
             ))}
         </AnimatePresence>
-
 
       </div>
 
