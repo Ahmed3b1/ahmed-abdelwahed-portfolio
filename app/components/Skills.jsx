@@ -72,10 +72,10 @@ const Skills = () => {
     const skills = [
       {title: "JavaScript" , percentage: 100 , icon: Code2},
       {title: "React" , percentage: 100 , icon: Layout},
-      {title: "Next.js" , percentage: 100 , icon: Layers},
+      {title: "MySql" , percentage: 100 , icon: Layers},
       {title: "Laravel" , percentage: 100 , icon: Cpu},
       {title: "PHP" , percentage: 100 , icon: Zap},
-      {title: "MySql" , percentage: 100 , icon: Globe}
+      {title: "Next" , percentage: 100 , icon: Globe}
     ] ;
 
     return(

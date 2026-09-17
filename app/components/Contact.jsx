@@ -23,17 +23,17 @@ const Contact = () => {
     {
       icon:<Mail className="text-[#D4AF37]"/>, 
       label: "Email",
-      value: "hello@cosmic.dev"
+      value: "a.abwahed777@gmail.com"
     },
     {
       icon:<Phone className="text-[#D4AF37]"/>, 
       label: "Phone",
-      value: "+1 (555) 123-4567"
+      value: "+20 1028024411"
     },
     {
       icon:<MapPin className="text-[#D4AF37]"/>, 
       label: "Location",
-      value: "Cyberspace , Earth"
+      value: "Egypt , Qena"
     },
   ];
 

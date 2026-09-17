@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useMotionValue, useSpring, useTransform } from "framer-motion";
+import Link from "next/link" ;
 
 const Hero = () => {
   const containerRef = useRef(null);
@@ -105,34 +106,38 @@ const Hero = () => {
           </motion.p>
 
           <div className="flex flex-wrap items-center gap-4 pt-2">
-            <motion.button
-              ref={buttonRef}
-              onMouseMove={handleBtnMouseMove}
-              onMouseLeave={handleBtnMouseLeave}
-              animate={{ x: btnPos.x, y: btnPos.y }}
-              transition={{ type: "spring", stiffness: 150, damping: 15 }}
-              whileTap={{ scale: 0.95 }}
-              className="relative bg-[#D4AF37] overflow-hidden group py-3 px-6 sm:py-4 sm:px-8 text-white text-sm font-bold
-                        hover:shadow-[0_0_15px_rgba(212,175,55,0.5)]
-                        rounded-full transition-shadow shadow-[0_0_15px_rgba(212,175,55,0.5)]"
-            >
-              <span className="relative z-10">View My Work</span>
-              <div
-                className="absolute inset-0 bg-linear-to-r from-[#D4AF37] to-[#FFD700] opacity-0
-                          group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </motion.button>
+            <Link href="#projects">
+              <motion.div
+                ref={buttonRef}
+                onMouseMove={handleBtnMouseMove}
+                onMouseLeave={handleBtnMouseLeave}
+                animate={{ x: btnPos.x, y: btnPos.y }}
+                transition={{ type: "spring", stiffness: 150, damping: 15 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative bg-[#D4AF37] overflow-hidden group py-3 px-6 sm:py-4 sm:px-8 text-white text-sm font-bold
+                          hover:shadow-[0_0_15px_rgba(212,175,55,0.5)]
+                          rounded-full transition-shadow shadow-[0_0_15px_rgba(212,175,55,0.5)]"
+              >
+                <span className="relative z-10">View My Work</span>
+                <div
+                  className="absolute inset-0 bg-linear-to-r from-[#D4AF37] to-[#FFD700] opacity-0
+                            group-hover:opacity-100 transition-opacity duration-300"
+                />
+              </motion.div>
+            </Link>
 
-            <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.5 }}
-              className="py-3 px-6 sm:py-4 sm:px-8 border border-white/10 text-white font-bold text-sm
-                         hover:bg-white/5
-                         rounded-full transition-colors"
-            >
-              Lets Talk
-            </motion.button>
+            <Link href="#contact">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5 }}
+                className="py-3 px-6 sm:py-4 sm:px-8 border border-white/10 text-white font-bold text-sm
+                          hover:bg-white/5
+                          rounded-full transition-colors"
+              >
+                Lets Talk
+              </motion.div>
+            </Link>
           </div>
         </div>
 

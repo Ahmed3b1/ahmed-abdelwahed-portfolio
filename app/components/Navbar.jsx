@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Mail, Rocket, User, Briefcase } from "lucide-react";
+import Link from "next/link" ;
 
 const Navbar = () => {
 
@@ -20,10 +21,10 @@ const Navbar = () => {
   }, []);
 
   const navlinks = [
-    { name: "Home", href: "#home", icon: <Rocket size={18} /> },
-    { name: "Skills", href: "#skills", icon: <User size={18} /> },
-    { name: "Projects", href: "#projects", icon: <Briefcase size={18} /> },
-    { name: "Contact", href: "#contact", icon: <Mail size={18} /> },
+    { name: "Home", href: "/#home", icon: <Rocket size={18} /> },
+    { name: "Skills", href: "/#skills", icon: <User size={18} /> },
+    { name: "Projects", href: "/#projects", icon: <Briefcase size={18} /> },
+    { name: "Contact", href: "/#contact", icon: <Mail size={18} /> },
   ];
 
   return (
@@ -59,17 +60,19 @@ const Navbar = () => {
           ))}
         </div>
 
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-[#D4AF37]/10 border border-[#D4AF37]/50
-           text-[#D4AF37] py-2 px-5 text-sm font-semibold
-           hover:text-black rounded-full
-           hover:bg-[#D4AF37] transition-all
-           shadow-[0_0_15px_rgba(212,175,55,0.5)]"
-        >
-          hire me
-        </motion.button>
+        <Link href="/#contact">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-[#D4AF37]/10 border border-[#D4AF37]/50
+                      text-[#D4AF37] py-2 px-5 text-sm font-semibold
+                      hover:text-black rounded-full
+                      hover:bg-[#D4AF37] transition-all
+                      shadow-[0_0_15px_rgba(212,175,55,0.5)]"
+          >
+            Hire Me
+          </motion.div>
+        </Link>
 
       </div>
     </nav>
