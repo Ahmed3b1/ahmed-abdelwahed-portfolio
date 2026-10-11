@@ -1,36 +1,181 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ahmed Abdelwahed — Full-Stack Developer Portfolio
 
-## Getting Started
+A modern and responsive personal portfolio website built with **Next.js, React, and Tailwind CSS** to showcase my skills, projects, and experience as a Full-Stack Developer.
 
-First, run the development server:
+The portfolio focuses on a clean and modern interface, smooth animations, responsive design, and an interactive user experience.
+
+## Live Demo
+
+[[View Live Portfolio](YOUR_LIVE_URL)](https://ahmed-abdelwahed-portfolio.vercel.app/   )
+
+## Features
+
+*  Modern and responsive UI
+*  Fully responsive design for desktop, tablet, and mobile
+*  Built with Next.js and React
+*  Smooth animations and transitions using Framer Motion
+*  Animated star background
+*  Projects showcase section
+*  Dedicated project details pages
+*  GitHub and Live Demo links for projects
+*  Contact section
+*  Responsive navigation
+*  Smooth scrolling between sections
+*  Dark-themed interface
+*  Gold-based visual theme
+
+## Technologies
+
+* **Next.js**
+* **React**
+* **JavaScript**
+* **Tailwind CSS**
+* **Framer Motion**
+* **Lucide React**
+* **Git & GitHub**
+
+#######################################################################################################
+
+## Main Sections
+
+### Hero
+
+Introduction section containing my name, role, short professional description, and links to my work and contact section.
+
+### Skills
+
+Showcases my main technical skills and technologies, with a focus on Full-Stack Web Development.
+
+### Projects
+
+Displays selected projects with their technologies, descriptions, GitHub repositories, and available live demos.
+
+Each project can have its own dedicated details page.
+
+### Contact
+
+A contact section that allows visitors to get in touch with me.
+
+#######################################################################################################
+
+##   Project Details
+
+The portfolio uses dynamic project pages:
+
+```text
+/projects/[slug]
+```
+
+Each project page can display:
+
+* Project name
+* Project description
+* Technologies used
+* GitHub repository
+* Live demo when available
+
+## Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+```
+
+### 2. Navigate to the project
+
+```bash
+cd YOUR_REPOSITORY
+```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+##  Build for Production
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+Then start the production server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Screenshots
 
-## Deploy on Vercel
+### Home
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Add your portfolio homepage screenshot here:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```md
+![Portfolio Home](./screenshots/home.png)
+```
+
+### Projects
+
+```md
+![Projects Section](./screenshots/projects.png)
+```
+
+### Project Details
+
+```md
+![Project Details](./screenshots/project-details.png)
+```
+
+##  Project Structure
+
+```text
+app/
+├── components/
+│   ├── Hero/
+│   ├── Skills/
+│   ├── Projects/
+│   ├── Contact/
+│   └── ...
+│
+├── projects/
+│   └── [slug]/
+│
+├── data/
+│   └── projects.js
+│
+├── layout.js
+├── page.js
+└── globals.css
+
+public/
+└── ...
+```
+
+##  About Me
+
+I'm a **Full-Stack Developer** specialized in building modern web applications using **Laravel, React, and Next.js**.
+
+My main focus is developing scalable backend systems with Laravel and creating modern, responsive frontend experiences with React and Next.js.
+
+## 🔗 Connect With Me
+
+* GitHub: https://github.com/Ahmed3b1
+* LinkedIn: https://linkedin.com/in/ahmed-abdelwahed-181860306
+
+## 📄 License
+
+This project is created for personal portfolio and educational purposes.
