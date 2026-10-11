@@ -142,7 +142,7 @@ const Projects = () => {
             viewport={{ once: true }}
             className="text-3xl md:text-5xl text-[#D4AF37] font-bold mb-4"
           >
-            Featured <span className="text-gradient">Creations</span>
+            Featured <span className="text-gradient">Projects</span>
           </motion.h2>
 
           <motion.h2
