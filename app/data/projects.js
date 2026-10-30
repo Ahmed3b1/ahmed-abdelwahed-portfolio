@@ -1,5 +1,24 @@
 export const projects = [
     {
+      title:"University System",
+      slug:"University-System" ,
+      github: "https://github.com/Ahmed3b1/university",
+      demo: "https://university-kappa-two.vercel.app/",
+      category: "Next",
+      description: "An integrated system for university including many features like courses, students, teachers, and more",
+      images: [
+      "/university/university.png" ,
+      "/university/university (2).png" ,
+      "/university/university (3).png" ,
+      "/university/university (4).png" ,
+      "/university/university (5).png" ,
+      "/university/university (6).png" ,
+      "/university/university (7).png" ,
+      "/university/university (8).png" ,
+      
+    ]
+    },
+    {
       title:"Sarmad",
       slug:"Sarmad" ,
       github: "https://github.com/Ahmed3b1/SARMAD",
